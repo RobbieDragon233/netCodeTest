@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .testAtrribute{
+            width: 200px;
+            height: 400px;
+            /*float: left;*/
+            display: flex; 
+            /*flex-wrap: nowrap;*/
+            background:#3771bb;
+        }
+        
+    </style>
+</head>
+<body>
+    <div id='app'>
+        <my-cnp></my-cnp>
+        <my-cnp2></my-cnp2>
+    </div>
+    <div class='testAtrribute'></div>
+    <span>sdfawef</span>
+    <div class='testAtrribute'></div>
+    <div class='testAtrribute'></div>
+
+</body>
+<!-- 开发环境版本，包含了有帮助的命令行警告 --> <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script>
+    const myCnp2 = Vue.extend({
+        template:`
+            <div>
+                <h1>I'm Vue</h1>
+                <h3>Hello world!</h3>
+            </div>
+        `
+    })
+
+    
+
+    const myCnp1 = Vue.extend({
+        template:`
+            <div>
+                <h1>I'm Huangchengcheng</h1>
+                <h3>Nice to meet you!</h3>
+                <innerCnp></innerCnp>
+            </div>
+            
+        `,
+        components:{
+            "innerCnp":myCnp2
+        }
+    })
+
+    
+
+    const app=new Vue({
+        el:"#app",
+        components:{
+            "my-cnp":myCnp1,
+            'my-cnp2':myCnp2
+        }
+    })
+</script>
+</html>
